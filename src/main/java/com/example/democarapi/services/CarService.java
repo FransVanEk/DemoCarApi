@@ -16,17 +16,15 @@ import java.util.UUID;
 public class CarService {
 
     private CarRepository repository;
+    public CarService(CarRepository repository) {
+        this.repository = repository;
+    }
+
 
     public List<CarResponse> getCarsByBrand(String brand) {
         List<Car> cars = repository.findByBrand(brand);
         return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
     }
-
-
-    public CarService(CarRepository repository) {
-        this.repository = repository;
-    }
-
 
     public List<CarResponse> getAllCars(String color) {
 
@@ -43,13 +41,9 @@ public class CarService {
 
     public CarResponse CreateCar(String brand, String model, String vin, String color, int numberOfDoors)
     {
-       var newCar = repository.save(new Car(brand, model, vin));
+       var newCar = repository.save(new Car(brand, model, vin, color, numberOfDoors));
         return CarMapper.ToResponse(newCar);
     }
 
-    public List<CarResponse> findByColor(String color){
-       List<Car> cars = repository.findByColor(color);
-       return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
-    }
 
 }
