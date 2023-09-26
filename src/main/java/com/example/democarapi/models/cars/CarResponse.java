@@ -7,14 +7,12 @@ public class CarResponse {
     private String brand;
     private String model;
     private String vin;
-    private String color;
 
-    public CarResponse(UUID id, String brand, String model, String vin, String color) {
+    public CarResponse(UUID id, String brand, String model, String vin) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.vin = vin;
-        this.color = color;
     }
 
     public UUID getId() {
@@ -47,13 +45,5 @@ public class CarResponse {
 
     public void setVin(String vin) {
         this.vin = vin;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 }

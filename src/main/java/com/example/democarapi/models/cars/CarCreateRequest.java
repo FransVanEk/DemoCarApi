@@ -7,12 +7,22 @@ public class CarCreateRequest {
     private String model;
     private String vin;
     private String color;
+    private int numberOfDoors;
 
-    public CarCreateRequest(String brand, String model, String vin, String color) {
+    public CarCreateRequest(String brand, String model, String vin, String color, int numberOfDoors) {
         this.brand = brand;
         this.model = model;
         this.vin = vin;
         this.color = color;
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+
+    public void setNumberOfDoors(int numberOfDoors) {
+        this.numberOfDoors = numberOfDoors;
     }
 
     public String getBrand() {
