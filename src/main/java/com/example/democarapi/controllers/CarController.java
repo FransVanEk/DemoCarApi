@@ -35,7 +35,7 @@ public class CarController {
     @GetMapping("")
     public ResponseEntity<List<CarResponse>> findByColor(@RequestParam String color){
         return ResponseEntity.ok(carService.findByColor(color));
-                        newCarInfo.getVin(),
+                        newCarInfo.getVin();
     }
 
 
