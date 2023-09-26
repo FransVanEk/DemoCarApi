@@ -40,11 +40,6 @@ public class CarController {
         newCarInfo.getNumberOfDoors()));
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<CarResponse>> findByColor(@RequestParam String color){
-        return ResponseEntity.ok(carService.findByColor(color));
-    }
-
 
     @GetMapping("/brand")
     public ResponseEntity<List<CarResponse>> filterByBrand(@RequestParam String brand){
