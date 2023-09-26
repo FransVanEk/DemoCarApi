@@ -4,11 +4,9 @@ import com.example.democarapi.models.cars.CarCreateRequest;
 import com.example.democarapi.models.cars.CarResponse;
 import com.example.democarapi.services.CarService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -30,4 +28,11 @@ public class CarController {
                         newCarInfo.getModel(),
                         newCarInfo.getVin()));
     }
+
+
+    @GetMapping("/api/brand")
+    public ResponseEntity<List<CarResponse>> filterByBrand(@RequestParam String brand){
+        return ResponseEntity.ok(carService.getCarsByBrand(brand));
+    }
+
 }
