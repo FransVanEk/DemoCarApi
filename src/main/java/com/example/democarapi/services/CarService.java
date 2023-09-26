@@ -10,11 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.UUID;
 
 @Service
 public class CarService {
 
     private CarRepository repository;
+
+    public List<CarResponse> getCarsByBrand(String brand) {
+        List<Car> cars = repository.findByBrand(brand);
+        return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
+    }
+
 
     public CarService(CarRepository repository) {
         this.repository = repository;
@@ -34,11 +41,15 @@ public class CarService {
         return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
     }
 
-
-    public CarResponse CreateCar(String brand, String model, String vin)
+    public CarResponse CreateCar(String brand, String model, String vin, String color, int numberOfDoors)
     {
        var newCar = repository.save(new Car(brand, model, vin));
         return CarMapper.ToResponse(newCar);
+    }
+
+    public List<CarResponse> findByColor(String color){
+       List<Car> cars = repository.findByColor(color);
+       return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
     }
 
 }

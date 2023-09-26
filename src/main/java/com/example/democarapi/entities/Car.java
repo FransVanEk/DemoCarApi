@@ -16,11 +16,26 @@ public class Car {
     private String brand;
     private String model;
     private String vin;
+    private String color;
+    private int numberOfDoors;
 
-    public Car(String brand, String model, String vin) {
+    public Car() {
+    }
+
+    public Car(String brand, String model, String vin,  String color, int numberOfDoors) {
         this.brand = brand;
         this.model = model;
         this.vin = vin;
+        this.color= color;
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+
+    public void setNumberOfDoors(int numberOfDoors) {
+        this.numberOfDoors = numberOfDoors;
     }
 
 
@@ -55,5 +70,12 @@ public class Car {
 
     public void setVin(String vin) {
         this.vin = vin;
+    }
+
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
     }
 }

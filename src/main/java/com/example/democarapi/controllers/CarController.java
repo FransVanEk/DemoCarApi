@@ -1,5 +1,6 @@
 package com.example.democarapi.controllers;
 
+import com.example.democarapi.entities.Car;
 import com.example.democarapi.models.cars.CarCreateRequest;
 import com.example.democarapi.models.cars.CarResponse;
 import com.example.democarapi.services.CarService;
@@ -34,6 +35,20 @@ public class CarController {
                 .CreateCar(
                         newCarInfo.getBrand(),
                         newCarInfo.getModel(),
-                        newCarInfo.getVin()));
+                        newCarInfo.getVin(),
+                        newCarInfo.getColor(),
+        newCarInfo.getNumberOfDoors()));
     }
+
+    @GetMapping("")
+    public ResponseEntity<List<CarResponse>> findByColor(@RequestParam String color){
+        return ResponseEntity.ok(carService.findByColor(color));
+    }
+
+
+    @GetMapping("/api/brand")
+    public ResponseEntity<List<CarResponse>> filterByBrand(@RequestParam String brand){
+        return ResponseEntity.ok(carService.getCarsByBrand(brand));
+    }
+
 }
