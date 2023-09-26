@@ -5,8 +5,8 @@ import com.example.democarapi.helpers.Capitalize;
 import com.example.democarapi.models.cars.CarResponse;
 
 public class CarMapper {
-    public static CarResponse ToResponse(Car entity)
-    {
+    public static CarResponse ToResponse(Car entity) {
+
         return new CarResponse(
                 entity.getId(),
                 Capitalize.capitalizeWord(entity.getBrand()),
