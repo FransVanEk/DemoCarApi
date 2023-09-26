@@ -4,11 +4,9 @@ import com.example.democarapi.models.cars.CarCreateRequest;
 import com.example.democarapi.models.cars.CarResponse;
 import com.example.democarapi.services.CarService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -19,6 +17,11 @@ public class CarController {
 
     public CarController(CarService carService) {
         this.carService = carService;
+    }
+
+    @GetMapping("")
+    public ResponseEntity<List<CarResponse>> getCars() {
+        return ResponseEntity.ok().body(carService.getAllCars());
     }
 
     @PostMapping("")

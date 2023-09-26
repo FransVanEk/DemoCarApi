@@ -23,6 +23,8 @@ public class Car {
         this.vin = vin;
     }
 
+
+
     public UUID getId() {
         return id;
     }

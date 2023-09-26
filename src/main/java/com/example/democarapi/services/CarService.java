@@ -6,7 +6,8 @@ import com.example.democarapi.models.cars.CarResponse;
 import com.example.democarapi.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CarService {
@@ -15,6 +16,20 @@ public class CarService {
 
     public CarService(CarRepository repository) {
         this.repository = repository;
+    }
+
+    public List<CarResponse> getAllCars() {
+
+
+        List<Car> allCarItems = repository.findAll();
+
+        List<CarResponse> responses = new ArrayList<>();
+
+        for (Car CarItem : allCarItems) {
+            CarResponse response = CarMapper.ToResponse(CarItem);
+            responses.add(response);
+        }
+        return responses;
     }
 
     public CarResponse CreateCar(String brand, String model, String vin)
