@@ -7,13 +7,11 @@ import com.example.democarapi.models.cars.CarResponse;
 public class CarMapper {
     public static CarResponse ToResponse(Car entity)
     {
-        String CapitalizedBrand = Capitalize.capitalizeWord(entity.getBrand());
-        String CapitalizedModel = Capitalize.capitalizeWord(entity.getModel());
-
+        .
         return new CarResponse(
                 entity.getId(),
-                CapitalizedBrand,
-                CapitalizedModel,
+                Capitalize.capitalizeWord(entity.getBrand()),
+                Capitalize.capitalizeWord(entity.getModel()),
                 entity.getVin()
         );
     }
