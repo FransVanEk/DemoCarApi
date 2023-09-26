@@ -19,10 +19,13 @@ public class CarController {
         this.carService = carService;
     }
 
+
+
     @GetMapping("")
-    public ResponseEntity<List<CarResponse>> getCars() {
-        return ResponseEntity.ok().body(carService.getAllCars());
+    public ResponseEntity<List<CarResponse>> getCars(@RequestParam(defaultValue = "") String color) {
+        return ResponseEntity.ok().body(carService.getAllCars(color));
     }
+
 
     @PostMapping("")
     public ResponseEntity<CarResponse> CreateCar(@RequestBody CarCreateRequest newCarInfo)

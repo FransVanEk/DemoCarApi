@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class CarService {
@@ -18,19 +20,20 @@ public class CarService {
         this.repository = repository;
     }
 
-    public List<CarResponse> getAllCars() {
 
-
-        List<Car> allCarItems = repository.findAll();
+    public List<CarResponse> getAllCars(String color) {
 
         List<CarResponse> responses = new ArrayList<>();
 
-        for (Car CarItem : allCarItems) {
-            CarResponse response = CarMapper.ToResponse(CarItem);
-            responses.add(response);
+        List<Car> cars;
+        if (!Objects.equals(color, "")) {
+            cars = repository.findByColor(color);
+        } else {
+            cars = repository.findAll();
         }
-        return responses;
+        return cars.stream().map(CarMapper::ToResponse).collect(Collectors.toList());
     }
+
 
     public CarResponse CreateCar(String brand, String model, String vin)
     {
