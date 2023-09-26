@@ -7,12 +7,22 @@ public class CarResponse {
     private String brand;
     private String model;
     private String vin;
+    private int numberOfDoors;
 
-    public CarResponse(UUID id, String brand, String model, String vin) {
+    public CarResponse(UUID id, String brand, String model, String vin, int numberOfDoors) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.vin = vin;
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+
+    public void setNumberOfDoors(int numberOfDoors) {
+        this.numberOfDoors = numberOfDoors;
     }
 
     public UUID getId() {

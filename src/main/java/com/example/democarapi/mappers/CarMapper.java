@@ -13,7 +13,8 @@ public class CarMapper {
                 entity.getId(),
                 Capitalize.capitalizeWord(entity.getBrand()),
                 Capitalize.capitalizeWord(entity.getModel()),
-                entity.getVin()
+                entity.getVin(),
+                entity.getNumberOfDoors()
         );
     }
 }

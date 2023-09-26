@@ -6,11 +6,21 @@ public class CarCreateRequest {
     private String brand;
     private String model;
     private String vin;
+    private int numberOfDoors;
 
-    public CarCreateRequest(String brand, String model, String vin) {
+    public CarCreateRequest(String brand, String model, String vin, int numberOfDoors) {
         this.brand = brand;
         this.model = model;
         this.vin = vin;
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+
+    public void setNumberOfDoors(int numberOfDoors) {
+        this.numberOfDoors = numberOfDoors;
     }
 
     public String getBrand() {
