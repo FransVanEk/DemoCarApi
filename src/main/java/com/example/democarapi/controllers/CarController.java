@@ -38,7 +38,7 @@ public class CarController {
     }
 
 
-    @GetMapping("/api/brand")
+    @GetMapping("/brand")
     public ResponseEntity<List<CarResponse>> filterByBrand(@RequestParam String brand){
         return ResponseEntity.ok(carService.getCarsByBrand(brand));
     }
