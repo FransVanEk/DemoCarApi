@@ -14,6 +14,7 @@ public class CarMapper {
                 Capitalize.capitalizeWord(entity.getBrand()),
                 Capitalize.capitalizeWord(entity.getModel()),
                 entity.getVin(),
+                entity.getColor(),
                 entity.getNumberOfDoors()
         );
     }
