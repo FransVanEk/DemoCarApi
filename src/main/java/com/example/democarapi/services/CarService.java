@@ -17,9 +17,9 @@ public class CarService {
         this.repository = repository;
     }
 
-    public CarResponse CreateCar(String brand, String model, String vin)
+    public CarResponse CreateCar(String brand, String model, String vin, String color)
     {
-       var newCar = repository.save(new Car(brand, model, vin));
+       var newCar = repository.save(new Car(brand, model, vin, color));
         return CarMapper.ToResponse(newCar);
     }
 

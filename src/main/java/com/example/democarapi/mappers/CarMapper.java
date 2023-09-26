@@ -10,7 +10,8 @@ public class CarMapper {
                 entity.getId(),
                 entity.getBrand(),
                 entity.getModel(),
-                entity.getVin()
+                entity.getVin(),
+                entity.getColor()
         );
     }
 }

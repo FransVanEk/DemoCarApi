@@ -6,11 +6,13 @@ public class CarCreateRequest {
     private String brand;
     private String model;
     private String vin;
+    private String color;
 
-    public CarCreateRequest(String brand, String model, String vin) {
+    public CarCreateRequest(String brand, String model, String vin, String color) {
         this.brand = brand;
         this.model = model;
         this.vin = vin;
+        this.color = color;
     }
 
     public String getBrand() {
@@ -35,5 +37,13 @@ public class CarCreateRequest {
 
     public void setVin(String vin) {
         this.vin = vin;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

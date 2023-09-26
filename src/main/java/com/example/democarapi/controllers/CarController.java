@@ -28,6 +28,7 @@ public class CarController {
                 .CreateCar(
                         newCarInfo.getBrand(),
                         newCarInfo.getModel(),
-                        newCarInfo.getVin()));
+                        newCarInfo.getVin(),
+                        newCarInfo.getColor()));
     }
 }
