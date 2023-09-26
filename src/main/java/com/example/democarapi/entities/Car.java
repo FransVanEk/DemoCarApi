@@ -16,11 +16,24 @@ public class Car {
     private String brand;
     private String model;
     private String vin;
+    private int numberOfDoors;
 
-    public Car(String brand, String model, String vin) {
+    public Car() {
+    }
+
+    public Car(String brand, String model, String vin, int numberOfDoors) {
         this.brand = brand;
         this.model = model;
         this.vin = vin;
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+
+    public void setNumberOfDoors(int numberOfDoors) {
+        this.numberOfDoors = numberOfDoors;
     }
 
     public UUID getId() {
